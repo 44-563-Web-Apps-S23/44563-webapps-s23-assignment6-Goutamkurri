@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Conversions file</title>
+</head>
+<body>
+<header>
+    <h1 style="text-align: center">Goutam Kurri shows currency conversions</h1>
+</header>
+<h2>Getting input</h2>
+
+<form>
+    <label for="basevalue">Enter base amount</label>
+    <input type ="number" id="basevalue" name="basevalue" value=50> <br>
+
+    <label for="rate">Enter conversion rate</label>
+    <input type ="number" id="rate" name="rate" value=35> <br>
+
+    <input type="button" class="btn btn-warning" onclick="convert()" value="Show conversions ">
+</form>
+
+
+<p id="result">Results will be shown here </p>
+
+<script> 
+
+function convert () {   
+    let basevalue=document.getElementById("basevalue").value;
+    let rate=document.getElementById("rate").value;
+    let toShow="";
+        for (let i = 0; i < 5; i++) {
+            finalvalue = basevalue + " is " + Math.round(basevalue * rate * 10) / 10;
+            toShow = toShow + finalvalue + "; ";
+            basevalue = basevalue * 2;
+        }
+    document.getElementById("result").innerHTML="Conversions are: "+toShow;
+    }
+</script>
+
+</body>
+</html> 
