@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Candy file</title>
+</head>
+<body>
+<header>
+    <h1 style="text-align: center">Goutam Kurri chooses candy</h1>
+</header>
+<h2>Getting input</h2>
+
+<form>
+    <input type="checkbox" id="choco" name="ADD ON1" value="True"><label for="cb1_choco">Dark Chocolate</label></br>
+    <input type="checkbox" id="nut" name="ADD ON2" value="True"><label for="cb1_nut">Nuts</label></br>
+    <input type="checkbox" id="chewy" name="ADD ON3" value="False"><label for="cb1_chewy">Chewy</label></br>
+
+    <input type="button" class="btn btn-primary" onclick="selectBox()" value="Select a box">
+  </form>
+
+
+<p id="result">This text will be replaced </p>
+
+<script> 
+
+my_candy_box={};
+function selectBox(){
+    my_candy_box ={};
+    my_candy_box.dark=document.getElementById("choco").checked;
+    my_candy_box.nuts=document.getElementById("nut").checked;
+    my_candy_box.chewy=document.getElementById("chewy").checked;
+    document.getElementById("result").innerHTML=JSON.stringify(my_candy_box);
+}
+</script>
+
+</body>
+</html> 
