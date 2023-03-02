@@ -16,11 +16,24 @@
     <label for="rate">Enter conversion rate</label>
     <input type ="number" id="rate" name="rate" value=35> <br>
 
-    <input type="button" class="btn btn-warning" onclick="convert()" value="Show conversions ">
+    <input type="button" class = "btn btn-primary" onclick="convert()" value="Show conversions">
 </form>
 
-
 <p id="result">Results will be shown here </p>
+
+<form>
+    <div class="form-group">
+        <input type="radio" name="action" id="mean" name="average" value="mean">
+        <label for="mean">mean</label><br>
+        <input type="radio" name="action" id="max" name="max" value="maximum">
+        <label for="max">max</label><br>
+        <input type="radio" name="action" id="min" name="min" value="minimum">
+        <label for="min">min</label><br>
+        <input type="button" class="btn btn-primary" onclick="chooseOp()" value="Get values from radio group">
+</form>
+
+<p id="result1">Radio Buttons Result will be shown here</p>
+
 
 <script> 
 
@@ -34,6 +47,23 @@ function convert () {
             basevalue = basevalue * 2;
         }
     document.getElementById("result").innerHTML="Conversions are: "+toShow;
+    }
+
+function chooseOp() {
+        let basevalue = document.getElementById("basevalue").value;
+        let rate = document.getElementById("rate").value;
+        let mean = document.getElementById("mean").checked;
+        let max = document.getElementById("max").checked;
+        let min = document.getElementById("min").checked;
+        if (mean) {
+            document.getElementById("result1").innerHTML = 'Mean of ' + basevalue + ' and ' + rate + ' is ' + (parseInt(basevalue) + parseInt(rate)) / 2;
+        }
+        else if (max) {
+            document.getElementById("result1").innerHTML = 'Max of ' + basevalue + ' and ' + rate + ' is ' + Math.max(basevalue, rate);
+        }
+        else if (min) {
+            document.getElementById("result1").innerHTML = 'Min of ' + basevalue + ' and ' + rate + ' is ' + Math.min(basevalue, rate);
+        }
     }
 </script>
 
